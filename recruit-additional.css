@@ -1,0 +1,417 @@
+/* ========================================
+   採用情報ページ - エントリーボタン追加スタイル
+   ======================================== */
+
+/* 職種カードの改良 */
+.position-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 46, 92, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.position-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s ease;
+}
+
+.position-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 46, 92, 0.15);
+}
+
+.position-details {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.position-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.position-requirements {
+    flex: 1;
+    margin-bottom: 1.5rem;
+}
+
+.position-requirements h4 {
+    color: #002e5c;
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.position-requirements ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.2rem;
+}
+
+.position-requirements li {
+    color: #666;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.position-benefits {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-tag {
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* エントリーボタン */
+.position-actions {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-entry {
+    width: 100%;
+    background: linear-gradient(135deg, #4a90e2, #002e5c);
+    color: white;
+    padding: 1.2rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-entry:hover::before {
+    left: 100%;
+}
+
+.btn-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(135deg, #002e5c, #1565c0);
+}
+
+.btn-entry svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.btn-entry:hover svg {
+    transform: scale(1.1);
+}
+
+/* CTAセクションの改良 */
+.recruit-cta .cta-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    color: #002e5c;
+    line-height: 1.2;
+}
+
+.recruit-cta .cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+}
+
+.recruit-cta .btn {
+    padding: 1.4rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    min-width: 220px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.recruit-cta .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.recruit-cta .btn:hover::before {
+    left: 100%;
+}
+
+.recruit-cta .btn-primary {
+    background: linear-gradient(135deg, #4a90e2, #002e5c);
+    color: white;
+    border: 2px solid #4a90e2;
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+}
+
+.recruit-cta .btn-primary:hover {
+    background: linear-gradient(135deg, #002e5c, #1565c0);
+    border-color: #002e5c;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.4);
+}
+
+.recruit-cta .btn-secondary {
+    background: white;
+    color: #4a90e2;
+    border: 2px solid #4a90e2;
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.1);
+}
+
+.recruit-cta .btn-secondary:hover {
+    background: #4a90e2;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
+}
+
+.recruit-cta .btn svg {
+    transition: transform 0.3s ease;
+}
+
+.recruit-cta .btn:hover svg {
+    transform: scale(1.1);
+}
+
+/* ========================================
+   スマホ最適化（768px以下）
+   ======================================== */
+@media (max-width: 768px) {
+    /* 職種カード */
+    .positions-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .position-card {
+        margin-bottom: 1rem;
+    }
+
+    .position-details {
+        padding: 1.5rem;
+    }
+
+    .position-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .position-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .btn-entry {
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+        gap: 0.6rem;
+    }
+
+    .btn-entry svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* CTAセクション */
+    .recruit-cta .cta-content h2 {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .recruit-cta .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .recruit-cta .btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+        min-width: auto;
+    }
+
+    .recruit-cta .btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* ========================================
+   極小スマホ最適化（480px以下）
+   ======================================== */
+@media (max-width: 480px) {
+    .position-details {
+        padding: 1rem;
+    }
+
+    .position-header {
+        padding: 1rem;
+    }
+
+    .position-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .btn-entry {
+        padding: 0.9rem 1.2rem;
+        font-size: 0.9rem;
+        border-radius: 25px;
+    }
+
+    .recruit-cta .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .recruit-cta .btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.95rem;
+        max-width: 280px;
+    }
+
+    .benefit-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* ========================================
+   職種カードのアニメーション強化
+   ======================================== */
+.position-card {
+    position: relative;
+}
+
+.position-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(74, 144, 226, 0.03) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+
+.position-card:hover::after {
+    transform: translateX(100%);
+}
+
+/* エントリーボタンのロード状態 */
+.btn-entry.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-entry.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   アクセシビリティ対応
+   ======================================== */
+.btn-entry:focus,
+.recruit-cta .btn:focus {
+    outline: 3px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .position-card,
+    .btn-entry,
+    .recruit-cta .btn {
+        transition: none;
+    }
+
+    .position-card::after,
+    .btn-entry::before,
+    .recruit-cta .btn::before {
+        display: none;
+    }
+}
+
+/* ========================================
+   高コントラストモード対応
+   ======================================== */
+@media (prefers-contrast: high) {
+    .btn-entry,
+    .recruit-cta .btn {
+        border-width: 3px;
+    }
+
+    .position-card {
+        border: 2px solid #000;
+    }
+
+    .benefit-tag {
+        border: 1px solid #1976d2;
+    }
+}

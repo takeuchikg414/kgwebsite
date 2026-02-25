@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エントリーフォーム - 株式会社KGpartners</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="entry-styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="kgpartnerslogo" width="200px">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#services">サービス</a></li>
+                <li><a href="index.html#about">会社概要</a></li>
+                <li><a href="philosophy.html">企業理念</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
+                <li><a href="entry.html">エントリーフォーム</a></li> <!-- ← この行を追加 -->
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">ホーム</a> > <a href="recruit.html">採用情報</a> > <span>エントリーフォーム</span>
+            </div>
+            <h1>エントリーフォーム</h1>
+            <p>あなたの新しいキャリアの第一歩を<br>私たちと一緒に踏み出しませんか？</p>
+        </div>
+    </section>
+
+    <section style="padding: 100px 0; background: #f8fafc;">
+        <div class="container">
+            <div class="entry-form-container">
+                <!-- プログレスバー -->
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 25%;"></div>
+                </div>
+
+                <!-- ステップインジケーター -->
+                <div class="step-indicator">
+                    <div class="step-indicator-item">
+                        <div class="step-number active" id="step1Number">1</div>
+                        <div class="step-label">基本情報</div>
+                    </div>
+                    <div class="step-indicator-item">
+                        <div class="step-number" id="step2Number">2</div>
+                        <div class="step-label">応募情報</div>
+                    </div>
+                    <div class="step-indicator-item">
+                        <div class="step-number" id="step3Number">3</div>
+                        <div class="step-label">経歴・スキル</div>
+                    </div>
+                    <div class="step-indicator-item">
+                        <div class="step-number" id="step4Number">4</div>
+                        <div class="step-label">書類添付</div>
+                    </div>
+                </div>
+
+                <form id="entryForm" action="entry_process.php" method="POST" enctype="multipart/form-data">
+                    <!-- ステップ1: 基本情報 -->
+                    <div class="step-content active" id="step1">
+                        <div class="form-section">
+                            <h3>基本情報</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lastName">姓 <span class="required">*</span></label>
+                                    <input type="text" id="lastName" name="last_name" required>
+                                    <div class="error-message">姓を入力してください</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstName">名 <span class="required">*</span></label>
+                                    <input type="text" id="firstName" name="first_name" required>
+                                    <div class="error-message">名を入力してください</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lastNameKana">セイ <span class="required">*</span></label>
+                                    <input type="text" id="lastNameKana" name="last_name_kana" required>
+                                    <div class="error-message">セイをカタカナで入力してください</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstNameKana">メイ <span class="required">*</span></label>
+                                    <input type="text" id="firstNameKana" name="first_name_kana" required>
+                                    <div class="error-message">メイをカタカナで入力してください</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="birthDate">生年月日 <span class="required">*</span></label>
+                                    <input type="date" id="birthDate" name="birth_date" required>
+                                    <div class="error-message">生年月日を入力してください</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">性別 <span class="required">*</span></label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">選択してください</option>
+                                        <option value="male">男性</option>
+                                        <option value="female">女性</option>
+                                        <option value="other">その他</option>
+                                    </select>
+                                    <div class="error-message">性別を選択してください</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">電話番号 <span class="required">*</span></label>
+                                    <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required>
+                                    <div class="error-message">電話番号を入力してください</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">メールアドレス <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required>
+                                    <div class="error-message">有効なメールアドレスを入力してください</div>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="address">住所 <span class="required">*</span></label>
+                                <input type="text" id="address" name="address" placeholder="〒000-0000 都道府県市区町村番地"
+                                    required>
+                                <div class="error-message">住所を入力してください</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ステップ2: 応募情報 -->
+                    <div class="step-content" id="step2">
+                        <div class="form-section">
+                            <h3>応募情報</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="desiredPosition">希望職種 <span class="required">*</span></label>
+                                    <select id="desiredPosition" name="desired_position" required>
+                                        <option value="">選択してください</option>
+                                        <option value="sales">営業スタッフ</option>
+                                        <option value="it_engineer">ITエンジニア</option>
+                                        <option value="call_center">コールセンタースタッフ</option>
+                                        <option value="hr_consultant">人材コンサルタント</option>
+                                        <option value="administrative">事務スタッフ</option>
+                                        <option value="other">その他</option>
+                                    </select>
+                                    <div class="error-message">希望職種を選択してください</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="employmentType">希望雇用形態 <span class="required">*</span></label>
+                                    <select id="employmentType" name="employment_type" required>
+                                        <option value="">選択してください</option>
+                                        <option value="fulltime">正社員</option>
+                                        <option value="contract">契約社員</option>
+                                        <option value="parttime">パートタイム</option>
+                                        <option value="temp">派遣社員</option>
+                                    </select>
+                                    <div class="error-message">希望雇用形態を選択してください</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="desiredLocation">希望勤務地</label>
+                                    <input type="text" id="desiredLocation" name="desired_location"
+                                        placeholder="東京都内、在宅勤務など">
+                                </div>
+                                <div class="form-group">
+                                    <label for="startDate">入社希望時期 <span class="required">*</span></label>
+                                    <select id="startDate" name="start_date" required>
+                                        <option value="">選択してください</option>
+                                        <option value="immediately">即日</option>
+                                        <option value="within_1month">1ヶ月以内</option>
+                                        <option value="within_2months">2ヶ月以内</option>
+                                        <option value="within_3months">3ヶ月以内</option>
+                                        <option value="negotiable">要相談</option>
+                                    </select>
+                                    <div class="error-message">入社希望時期を選択してください</div>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="desiredSalary">希望年収</label>
+                                <input type="text" id="desiredSalary" name="desired_salary"
+                                    placeholder="例：400万円〜、要相談など">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ステップ3: 経歴・スキル -->
+                    <div class="step-content" id="step3">
+                        <div class="form-section">
+                            <h3>経歴・スキル</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="education">最終学歴 <span class="required">*</span></label>
+                                    <select id="education" name="education" required>
+                                        <option value="">選択してください</option>
+                                        <option value="high_school">高等学校卒業</option>
+                                        <option value="vocational_school">専門学校卒業</option>
+                                        <option value="junior_college">短期大学卒業</option>
+                                        <option value="university">大学卒業</option>
+                                        <option value="graduate_school">大学院卒業</option>
+                                        <option value="other">その他</option>
+                                    </select>
+                                    <div class="error-message">最終学歴を選択してください</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="workExperience">職歴年数</label>
+                                    <select id="workExperience" name="work_experience">
+                                        <option value="">選択してください</option>
+                                        <option value="no_experience">未経験</option>
+                                        <option value="less_than_1year">1年未満</option>
+                                        <option value="1_3years">1-3年</option>
+                                        <option value="3_5years">3-5年</option>
+                                        <option value="5_10years">5-10年</option>
+                                        <option value="more_than_10years">10年以上</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="workHistory">職歴概要</label>
+                                <textarea id="workHistory" name="work_history"
+                                    placeholder="これまでの職歴を簡潔にご記入ください"></textarea>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="qualifications">保有資格・スキル</label>
+                                <textarea id="qualifications" name="qualifications"
+                                    placeholder="資格名、プログラミング言語、語学力など"></textarea>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="motivation">志望動機 <span class="required">*</span></label>
+                                <textarea id="motivation" name="motivation" required
+                                    placeholder="当社を志望される理由をお聞かせください"></textarea>
+                                <div class="error-message">志望動機を入力してください</div>
+                            </div>
+                            <div class="form-group form-group-full">
+                                <label for="selfPr">自己PR</label>
+                                <textarea id="selfPr" name="self_pr" placeholder="ご自身の強みやアピールポイントをお聞かせください"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ステップ4: 書類添付 -->
+                    <div class="step-content" id="step4">
+                        <div class="form-section">
+                            <h3>書類添付</h3>
+
+                            <!-- 履歴書 -->
+                            <div class="form-group form-group-full">
+                                <label>履歴書 <span class="required">*</span></label>
+                                <div class="file-upload-area" onclick="document.getElementById('resume').click()">
+                                    <div class="file-upload-icon">📄</div>
+                                    <div class="file-upload-text">
+                                        <strong>履歴書をアップロード</strong><br>
+                                        クリックしてファイルを選択するか、ここにドラッグ&ドロップ<br>
+                                        <small>対応形式: PDF, DOC, DOCX (最大10MB)</small>
+                                    </div>
+                                    <button type="button" class="file-upload-button">ファイル選択</button>
+                                </div>
+                                <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"
+                                    style="display: none;" required>
+                                <div class="uploaded-files" id="resumeFiles"></div>
+                                <div class="error-message">履歴書を添付してください</div>
+                            </div>
+
+                            <!-- 職務経歴書 -->
+                            <div class="form-group form-group-full">
+                                <label>職務経歴書</label>
+                                <div class="file-upload-area"
+                                    onclick="document.getElementById('careerHistory').click()">
+                                    <div class="file-upload-icon">📋</div>
+                                    <div class="file-upload-text">
+                                        <strong>職務経歴書をアップロード</strong><br>
+                                        クリックしてファイルを選択するか、ここにドラッグ&ドロップ<br>
+                                        <small>対応形式: PDF, DOC, DOCX (最大10MB)</small>
+                                    </div>
+                                    <button type="button" class="file-upload-button">ファイル選択</button>
+                                </div>
+                                <input type="file" id="careerHistory" name="career_history" accept=".pdf,.doc,.docx"
+                                    style="display: none;">
+                                <div class="uploaded-files" id="careerHistoryFiles"></div>
+                            </div>
+
+                            <!-- その他書類 -->
+                            <div class="form-group form-group-full">
+                                <label>その他書類（ポートフォリオなど）</label>
+                                <div class="file-upload-area" onclick="document.getElementById('otherDocs').click()">
+                                    <div class="file-upload-icon">📎</div>
+                                    <div class="file-upload-text">
+                                        <strong>その他書類をアップロード</strong><br>
+                                        クリックしてファイルを選択するか、ここにドラッグ&ドロップ<br>
+                                        <small>対応形式: PDF, DOC, DOCX, ZIP (最大20MB)</small>
+                                    </div>
+                                    <button type="button" class="file-upload-button">ファイル選択</button>
+                                </div>
+                                <input type="file" id="otherDocs" name="other_docs[]" accept=".pdf,.doc,.docx,.zip"
+                                    multiple style="display: none;">
+                                <div class="uploaded-files" id="otherDocsFiles"></div>
+                            </div>
+
+                            <!-- 個人情報の取り扱いについて -->
+                            <div class="form-group form-group-full">
+                                <div class="checkbox-group">
+                                    <input type="checkbox" id="privacyConsent" name="privacy_consent" required>
+                                    <label for="privacyConsent">
+                                        <span class="required">*</span>
+                                        <a href="#" onclick="openPrivacyModal(); return false;">個人情報の取り扱いについて</a>に同意します
+                                    </label>
+                                </div>
+                                <div class="error-message">個人情報の取り扱いに同意してください</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ナビゲーションボタン -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn-nav btn-secondary" id="prevBtn" onclick="changeStep(-1)"
+                            style="display: none;">前へ</button>
+                        <div style="flex: 1;"></div>
+                        <button type="button" class="btn-nav btn-primary" id="nextBtn"
+                            onclick="changeStep(1)">次へ</button>
+                        <button type="submit" class="btn-nav btn-primary" id="submitBtn"
+                            style="display: none;">送信する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 個人情報取り扱いモーダル -->
+    <div id="privacyModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 2rem; border-radius: 10px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+            <h3 style="color: #002e5c; margin-bottom: 1rem;">個人情報の取り扱いについて</h3>
+            <div style="line-height: 1.6; color: #666;">
+                <p>当社では、お客様の個人情報を以下の通り取り扱います。</p>
+                <h4>1. 個人情報の利用目的</h4>
+                <p>・採用選考のため<br>・お客様への連絡のため<br>・サービス向上のため</p>
+                <h4>2. 個人情報の第三者提供</h4>
+                <p>法令に基づく場合を除き、お客様の同意なく第三者に提供することはありません。</p>
+                <h4>3. 個人情報の保管期間</h4>
+                <p>採用選考終了後、適切な期間保管した後に安全に廃棄いたします。</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="closePrivacyModal()"
+                    style="background: #4a90e2; color: white; padding: 0.8rem 2rem; border: none; border-radius: 25px; cursor: pointer;">閉じる</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>サービス</h4>
+                    <ul>
+                        <li><a href="jinzai.html">人材紹介・派遣</a></li>
+                        <li><a href="eigyo.html">営業代行</a></li>
+                        <li><a href="it.html">IT事業</a></li>
+                        <li><a href="syuzen.html">修繕事業</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>企業情報</h4>
+                    <ul>
+                        <li><a href="index.html#about">会社概要</a></li>
+                        <li><a href="philosophy.html">企業理念</a></li>
+                        <li><a href="recruit.html">採用情報</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>サポート</h4>
+                    <ul>
+                        <li><a href="entry.html">エントリーフォーム</a></li>
+                        <li><a href="index.html#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>お問い合わせ</h4>
+                    <div class="footer-contact">
+                        <p>営業時間：平日 10:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KGpartners Corporation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        // ステップ変更関数
+        function changeStep(direction) {
+            if (direction === 1 && !validateCurrentStep()) {
+                return;
+            }
+
+            const currentStepEl = document.getElementById(`step${currentStep}`);
+            const currentNumberEl = document.getElementById(`step${currentStep}Number`);
+
+            currentStepEl.classList.remove('active');
+
+            if (direction === 1) {
+                currentNumberEl.classList.remove('active');
+                currentNumberEl.classList.add('completed');
+                currentStep++;
+            } else {
+                currentStep--;
+                currentNumberEl.classList.remove('completed');
+                currentNumberEl.classList.add('active');
+            }
+
+            const newStepEl = document.getElementById(`step${currentStep}`);
+            const newNumberEl = document.getElementById(`step${currentStep}Number`);
+
+            newStepEl.classList.add('active');
+            newNumberEl.classList.add('active');
+
+            updateProgressBar();
+            updateNavigation();
+
+            // ページトップにスムーズスクロール
+            scrollToTop();
+        }
+
+        // ページトップにスクロールする関数
+        function scrollToTop() {
+            // ヘッダーの高さを取得
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 80;
+
+            // ステップインジケーターの位置まで戻る
+            const stepIndicator = document.querySelector('.step-indicator');
+            const targetPosition = stepIndicator ?
+                stepIndicator.offsetTop - headerHeight - 20 :
+                headerHeight + 20;
+
+            // スムーズスクロール
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            // 最初の入力フィールドにフォーカス（アクセシビリティ向上）
+            setTimeout(() => {
+                const firstInput = document.querySelector(`#step${currentStep} input:not([type="hidden"]), #step${currentStep} select, #step${currentStep} textarea`);
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            }, 500); // スクロール完了後にフォーカス
+        }
+
+        // プログレスバー更新
+        function updateProgressBar() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // ナビゲーションボタン更新
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const submitBtn = document.getElementById('submitBtn');
+
+            prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+
+            if (currentStep === totalSteps) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'block';
+            } else {
+                nextBtn.style.display = 'block';
+                submitBtn.style.display = 'none';
+            }
+        }
+
+        // 現在のステップのバリデーション
+        function validateCurrentStep() {
+            const currentStepEl = document.getElementById(`step${currentStep}`);
+            const requiredFields = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            let errorMessages = [];
+
+            // まず全てのエラー状態をクリア
+            currentStepEl.querySelectorAll('.form-group.error').forEach(group => {
+                group.classList.remove('error');
+            });
+
+            requiredFields.forEach(field => {
+                const formGroup = field.closest('.form-group');
+                const fieldLabel = formGroup.querySelector('label').textContent.replace('*', '').trim();
+
+                if (!field.value.trim()) {
+                    formGroup.classList.add('error');
+                    errorMessages.push(fieldLabel);
+                    isValid = false;
+                } else {
+                    formGroup.classList.remove('error');
+
+                    // 特別なバリデーション
+                    if (field.type === 'email' && !isValidEmail(field.value)) {
+                        formGroup.classList.add('error');
+                        errorMessages.push(fieldLabel + '（正しい形式で入力してください）');
+                        isValid = false;
+                    }
+                }
+            });
+
+            // ステップ4の特別なバリデーション
+            if (currentStep === 4) {
+                const resumeFile = document.getElementById('resume');
+                const privacyConsent = document.getElementById('privacyConsent');
+
+                if (!resumeFile.files.length) {
+                    resumeFile.closest('.form-group').classList.add('error');
+                    errorMessages.push('履歴書');
+                    isValid = false;
+                } else {
+                    resumeFile.closest('.form-group').classList.remove('error');
+                }
+
+                if (!privacyConsent.checked) {
+                    privacyConsent.closest('.form-group').classList.add('error');
+                    errorMessages.push('個人情報の取り扱いへの同意');
+                    isValid = false;
+                } else {
+                    privacyConsent.closest('.form-group').classList.remove('error');
+                }
+            }
+
+            // バリデーションエラーがある場合はアラート表示
+            if (!isValid) {
+                showValidationAlert(errorMessages);
+            }
+
+            return isValid;
+        }
+
+        // バリデーションアラート表示
+        function showValidationAlert(errorMessages) {
+            // 既存のアラートがあれば削除
+            const existingAlert = document.querySelector('.validation-alert');
+            const existingOverlay = document.querySelector('.validation-alert-overlay');
+            if (existingAlert) existingAlert.remove();
+            if (existingOverlay) existingOverlay.remove();
+
+            // オーバーレイ作成
+            const overlay = document.createElement('div');
+            overlay.className = 'validation-alert-overlay';
+            document.body.appendChild(overlay);
+
+            // アラートダイアログ作成
+            const alert = document.createElement('div');
+            alert.className = 'validation-alert';
+
+            const stepNames = {
+                1: '基本情報',
+                2: '応募情報',
+                3: '経歴・スキル',
+                4: '書類添付'
+            };
+
+            alert.innerHTML = `
+                <h3>入力エラー</h3>
+                <p><strong>${stepNames[currentStep]}</strong>で入力が必要な項目があります：</p>
+                <ul>
+                    ${errorMessages.map(msg => `<li>${msg}</li>`).join('')}
+                </ul>
+                <button class="alert-button" onclick="closeValidationAlert()">確認</button>
+            `;
+
+            document.body.appendChild(alert);
+
+            // 3秒後に自動で閉じる
+            setTimeout(() => {
+                if (document.querySelector('.validation-alert')) {
+                    closeValidationAlert();
+                }
+            }, 5000);
+        }
+
+        // バリデーションアラートを閉じる
+        function closeValidationAlert() {
+            const alert = document.querySelector('.validation-alert');
+            const overlay = document.querySelector('.validation-alert-overlay');
+
+            if (alert) {
+                alert.style.animation = 'alertSlideOut 0.3s ease-in forwards';
+                setTimeout(() => alert.remove(), 300);
+            }
+            if (overlay) {
+                overlay.style.animation = 'fadeOut 0.3s ease-in forwards';
+                setTimeout(() => overlay.remove(), 300);
+            }
+
+            // 最初のエラーフィールドにスクロールしてフォーカス
+            setTimeout(() => {
+                const firstErrorField = document.querySelector('.form-group.error input, .form-group.error select, .form-group.error textarea');
+                if (firstErrorField) {
+                    // エラーフィールドの位置にスクロール
+                    const header = document.querySelector('header');
+                    const headerHeight = header ? header.offsetHeight : 80;
+                    const fieldPosition = firstErrorField.offsetTop - headerHeight - 20;
+
+                    window.scrollTo({
+                        top: fieldPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // フォーカスを当てる
+                    setTimeout(() => {
+                        firstErrorField.focus();
+                    }, 500);
+                }
+            }, 300);
+        }
+
+        // メールアドレスバリデーション
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // ファイルアップロード処理
+        function setupFileUpload(inputId, displayId) {
+            const input = document.getElementById(inputId);
+            const display = document.getElementById(displayId);
+
+            input.addEventListener('change', function () {
+                displayUploadedFiles(this, display);
+            });
+
+            // ドラッグ&ドロップ対応
+            const uploadArea = input.closest('.form-group').querySelector('.file-upload-area');
+
+            uploadArea.addEventListener('dragover', function (e) {
+                e.preventDefault();
+                this.classList.add('dragover');
+            });
+
+            uploadArea.addEventListener('dragleave', function (e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', function (e) {
+                e.preventDefault();
+                this.classList.remove('dragover');
+
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    input.files = files;
+                    displayUploadedFiles(input, display);
+                }
+            });
+        }
+
+        // アップロードされたファイル表示
+        function displayUploadedFiles(input, container) {
+            container.innerHTML = '';
+
+            Array.from(input.files).forEach((file, index) => {
+                const fileDiv = document.createElement('div');
+                fileDiv.className = 'uploaded-file';
+                fileDiv.innerHTML = `
+                    <div class="file-info">
+                        <span class="file-name">${file.name}</span>
+                        <span class="file-size">(${formatFileSize(file.size)})</span>
+                    </div>
+                    <button type="button" class="remove-file" onclick="removeFile('${input.id}', ${index}, '${container.id}')">削除</button>
+                `;
+                container.appendChild(fileDiv);
+            });
+        }
+
+        // ファイルサイズフォーマット
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // ファイル削除
+        function removeFile(inputId, index, containerId) {
+            const input = document.getElementById(inputId);
+            const container = document.getElementById(containerId);
+            const dt = new DataTransfer();
+
+            Array.from(input.files).forEach((file, i) => {
+                if (i !== index) {
+                    dt.items.add(file);
+                }
+            });
+
+            input.files = dt.files;
+            displayUploadedFiles(input, container);
+        }
+
+        // プライバシーモーダル
+        function openPrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'block';
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').style.display = 'none';
+        }
+
+        // フォーム送信処理
+        document.getElementById('entryForm').addEventListener('submit', function (e) {
+            if (!validateCurrentStep()) {
+                e.preventDefault();
+                return;
+            }
+
+            // 送信中の表示
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '送信中...';
+            submitBtn.disabled = true;
+
+            // 送信中はページトップにスクロール
+            scrollToTop();
+
+            // 送信エラー時の処理（タイムアウト設定）
+            setTimeout(() => {
+                if (submitBtn.disabled) {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            }, 30000); // 30秒後にタイムアウト
+        });
+
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function () {
+            // ファイルアップロードの設定
+            setupFileUpload('resume', 'resumeFiles');
+            setupFileUpload('careerHistory', 'careerHistoryFiles');
+            setupFileUpload('otherDocs', 'otherDocsFiles');
+
+            // リアルタイムバリデーション（入力時にエラーをクリア）
+            document.querySelectorAll('input, select, textarea').forEach(field => {
+                // 入力開始時にエラー状態をクリア
+                field.addEventListener('input', function () {
+                    const formGroup = this.closest('.form-group');
+                    if (formGroup.classList.contains('error')) {
+                        // 値がある場合のみエラーをクリア
+                        if (this.value.trim()) {
+                            formGroup.classList.remove('error');
+                        }
+                    }
+                });
+
+                // フォーカス時にもエラーをクリア（ユーザビリティ向上）
+                field.addEventListener('focus', function () {
+                    const formGroup = this.closest('.form-group');
+                    if (formGroup.classList.contains('error')) {
+                        formGroup.classList.remove('error');
+                    }
+                });
+
+                // メールアドレスのリアルタイムバリデーション
+                if (field.type === 'email') {
+                    field.addEventListener('blur', function () {
+                        const formGroup = this.closest('.form-group');
+                        if (this.value.trim() && !isValidEmail(this.value)) {
+                            formGroup.classList.add('error');
+                        } else {
+                            formGroup.classList.remove('error');
+                        }
+                    });
+                }
+            });
+
+            // ファイル選択時にエラーをクリア
+            document.getElementById('resume').addEventListener('change', function () {
+                if (this.files.length > 0) {
+                    this.closest('.form-group').classList.remove('error');
+                }
+            });
+
+            // プライバシー同意チェック時にエラーをクリア
+            document.getElementById('privacyConsent').addEventListener('change', function () {
+                if (this.checked) {
+                    this.closest('.form-group').classList.remove('error');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
